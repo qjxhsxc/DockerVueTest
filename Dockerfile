@@ -1,4 +1,5 @@
 FROM node:6.10.3-slim
+RUN sudo su root
 RUN yum update \    && yum install -y nginx
 WORKDIR /app
 COPY . /app/
