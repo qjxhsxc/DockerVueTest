@@ -4,7 +4,7 @@
       <swiper-slide v-for="(items, index) of pages" :key="index">
         <div v-for="item of items" :key="item.id" class="icon-item">
           <div class="icon-img">
-            <img class="img-self" src="https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png" />
+            <img class="img-self" :src="item.iconImg" />
           </div>
           <p class="icon-font">{{item.description}}</p>
         </div>
@@ -22,64 +22,20 @@ export default {
     swiper,
     swiperSlide
   },
+  props: {
+    iconsData: Array
+  },
   data() {
     return {
       swiperOption: {
         loop: false
-      },
-      iconLists: [
-        {
-          id: 0,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 1,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '火车票'
-        },
-        {
-          id: 2,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 3,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 4,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 5,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 6,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 7,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '飞机票'
-        },
-        {
-          id: 8,
-          iconImg: 'https://pic5.40017.cn/02/001/5f/ab/rBLkCFqozNqAJqPYAAAFlYq1v7A413.png',
-          description: '一日游'
-        }
-      ]
+      }
     }
   },
   computed: {
     pages() {
       const pages = []
-      this.iconLists.forEach((item, index) => {
+      this.iconsData.forEach((item, index) => {
         let page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="title">热门推荐</div>
-      <div class="item" v-for="item of recommendList" :key="recommendList.id">
+      <div class="item" v-for="item of recommendData" :key="recommendData.id">
         <div class="item-img">
           <img class="img-self" :src="item.imgUrl" />
         </div>
         <div class="font">
-          <p class="font-title">{{item.titile}}</p>
+          <p class="font-title">{{item.title}}</p>
           <p class="font-description">{{item.description}}</p>
           <p class="font-price">{{item.price}}<span class="font-price-hanz">起</span></p>
         </div>
@@ -16,6 +16,9 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendData: Array
+  },
   data() {
     return {
       recommendList: [

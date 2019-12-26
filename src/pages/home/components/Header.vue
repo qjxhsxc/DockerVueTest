@@ -8,14 +8,17 @@
       输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-      <span>城市</span>
+      <span>{{this.cityData}}</span>
       <div class="triangle"></div>
     </div>
   </div>
 </template>
 <script>
   export default {
-    name: 'Header'
+    name: 'Header',
+    props: {
+      cityData: String
+    }
   }
 </script>
 <style lang="stylus" scoped>
